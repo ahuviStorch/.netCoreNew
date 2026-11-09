@@ -4,13 +4,9 @@ namespace SweetBakery.Extensions;
 
 public static class MiddlewareExtensions
 {
-    public static WebApplication UseApplicationMiddleware(
-        this WebApplication app)
+    public static IApplicationBuilder UseErrorHandling(
+        this IApplicationBuilder app)
     {
-        app.UseMiddleware<ExceptionHandlingMiddleware>();
-
-        app.UseMiddleware<RequestLoggingMiddleware>();
-
-        return app;
+        return app.UseMiddleware<ErrorHandlingMiddleware>();
     }
 }

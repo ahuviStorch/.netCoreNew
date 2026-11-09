@@ -1,4 +1,5 @@
 using SweetBakery.Extensions;
+using SweetBakery.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,10 +10,14 @@ builder.Services.AddApplicationServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Build application
 var app = builder.Build();
 
-// Middleware
-app.UseApplicationMiddleware();
+// Error handling middleware - must be first
+app.UseErrorHandling();
+
+// Request logging middleware
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 // Swagger UI in Development
 if (app.Environment.IsDevelopment())
@@ -21,7 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Controllers
+// Map Controllers
 app.MapControllers();
 
+// Run application
 app.Run();
