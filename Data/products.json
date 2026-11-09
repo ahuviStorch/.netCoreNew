@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Name": "Chocolate Cake",
+    "Category": "Cakes",
+    "Price": 85,
+    "QuantityInStock": 8
+  },
+  {
+    "Id": 2,
+    "Name": "Butter Croissant",
+    "Category": "Pastries",
+    "Price": 14,
+    "QuantityInStock": 25
+  },
+  {
+    "Id": 3,
+    "Name": "Chocolate Cookies",
+    "Category": "Cookies",
+    "Price": 12,
+    "QuantityInStock": 40
+  }
+]
